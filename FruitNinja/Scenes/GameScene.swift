@@ -36,7 +36,13 @@ extension GameScene {
     
     func setupNodes(){
         createBg()
+        setupPhysics()
         tossHandler()
+    }
+    
+    func setupPhysics(){
+        physicsWorld.gravity = CGVector(dx: 0.0, dy: -6.0)
+        physicsWorld.speed = 0.85
     }
     
     
@@ -67,13 +73,17 @@ extension GameScene {
     }
     
     func createSprite(){
+        // creating and configuring fruits
         let sprite = SKSpriteNode(imageNamed: "fruit_2")
         sprite.setScale(1.5)
         sprite.name = "Fruit"
         let spriteW = sprite.frame.width
+        // Spawning at a random position
         let xRandom = CGFloat.random(min: frame.minX + spriteW, max: frame.maxX - spriteW)
         let pos = CGPoint(x: xRandom, y: frame.midY)
         sprite.position = pos
+        sprite.physicsBody = SKPhysicsBody(circleOfRadius: 60.0)
+        sprite.physicsBody?.collisionBitMask = 0
         addChild(sprite)
     }
     
