@@ -12,11 +12,12 @@ class GameScene: SKScene {
     
     // MARK: - Properties
     var popupTime: Double = 0.9
+    var sequencePos = 0
+    var delay = 3.0
     var isNextSequenceQueued = true
     
     var sequenceType: [SequenceType] = []
-    var sequencePos = 0
-    var delay = 3.0
+    var activeSprites: [SKNode] = []
     
     //MARK: - Lifecycle
     
@@ -25,9 +26,28 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        if !isNextSequenceQueued {
-            run(.wait(forDuration: popupTime)){self.tossHandler()}
-            isNextSequenceQueued = true
+        if activeSprites.count > 0 {
+            activeSprites.forEach({
+                let height = $0.frame.height
+                let value = frame.minY - height
+                if $0.position.y < value {
+                    $0.removeAllActions()
+                    if $0.name == "BombContainer"{
+                        $0.name = nil
+                        $0.removeFromParent()
+                        removeSprite($0, nodes: &activeSprites)
+                    } else if $0.name == "Fruit" {
+                        $0.name = nil
+                        $0.removeFromParent()
+                        removeSprite($0, nodes: &activeSprites)
+                    }
+                }
+            })
+        } else {
+            if !isNextSequenceQueued {
+                run(.wait(forDuration: popupTime)){self.tossHandler()}
+                isNextSequenceQueued = true
+            }
         }
     }
     
@@ -165,6 +185,13 @@ extension GameScene {
         sprite.physicsBody?.angularVelocity = angularVelocity
         sprite.physicsBody?.velocity = CGVector(dx: CGFloat(xVelocity*40), dy: CGFloat(yVelocity*40))
         addChild(sprite)
+        activeSprites.append(sprite)
+    }
+    
+    func removeSprite(_ node: SKNode, nodes: inout [SKNode]){
+        if let index = nodes.firstIndex(of: node){
+            nodes.remove(at: index)
+        }
     }
     
 }
