@@ -16,6 +16,7 @@ class GameScene: SKScene {
     
     var sequenceType: [SequenceType] = []
     var sequencePos = 0
+    var delay = 3.0
     
     //MARK: - Lifecycle
     
@@ -72,6 +73,8 @@ extension GameScene {
     func tossHandler(){
         // time to spawn fruit
         popupTime *= 0.991
+        delay *= 0.99
+        // creating sequence
         let sequence = sequenceType[sequencePos]
         switch sequence {
         case .OneNoBomb:
@@ -95,9 +98,16 @@ extension GameScene {
             createSprite()
         case .Five:
             createSprite()
+            run(.wait(forDuration: delay/5)){self.createSprite()}
+            run(.wait(forDuration: delay/5)){self.createSprite()}
+            run(.wait(forDuration: delay/5*2)){self.createSprite()}
+            run(.wait(forDuration: delay/5*3)){self.createSprite()}
         case .Six:
             createSprite()
-            
+            run(.wait(forDuration: delay/10)){self.createSprite()}
+            run(.wait(forDuration: delay/10)){self.createSprite()}
+            run(.wait(forDuration: delay/10)){self.createSprite()}
+            run(.wait(forDuration: delay/10*2)){self.createSprite()}
         }
         sequencePos += 1
         isNextSequenceQueued = false

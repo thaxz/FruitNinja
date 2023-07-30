@@ -8,5 +8,5 @@
 import Foundation
 import UIKit
 
-public let screenWidth = UIScreen.main.bounds.width
-public let screenHeight = UIScreen.main.bounds.height
+public let screenWidth = 2048
+public let screenHeight = 1536
