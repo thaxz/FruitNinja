@@ -36,6 +36,16 @@ class GameScene: SKScene {
         }
     }
     
+    // the playable area
+    var playableRect: CGRect {
+        let ratio: CGFloat = appDl.iPhoneX ? 2.16 : 16/9
+        let width = size.width
+        let height = width / ratio
+        let x: CGFloat = 0.0
+        let y: CGFloat = (size.height - height)/2
+        return CGRect(x: x, y: y, width: width, height: height)
+    }
+    
     //MARK: - Lifecycle
     
     override func didMove(to view: SKView) {
