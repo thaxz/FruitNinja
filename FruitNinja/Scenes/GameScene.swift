@@ -154,7 +154,7 @@ extension GameScene {
         setupSequenceType()
         createSlice()
         createScore()
-        
+        drawPlayableArea()
         tossHandler()
     }
     
@@ -365,7 +365,7 @@ extension GameScene {
         scoreLb.fontSize = 80.0
         scoreLb.verticalAlignmentMode = .center
         scoreLb.horizontalAlignmentMode = .center
-        scoreLb.position = CGPoint(x: frame.midX, y: frame.maxY - 100)
+        scoreLb.position = CGPoint(x: frame.midX, y: appDl.iPad ? frame.maxY - 100 : playableRect.maxY - 100)
         addChild(scoreLb)
     }
     
