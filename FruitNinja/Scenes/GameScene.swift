@@ -14,6 +14,9 @@ class GameScene: SKScene {
     var popupTime: Double = 0.9
     var isNextSequenceQueued = true
     
+    var sequenceType: [SequenceType] = []
+    var sequencePos = 0
+    
     //MARK: - Lifecycle
     
     override func didMove(to view: SKView) {
@@ -37,6 +40,7 @@ extension GameScene {
     func setupNodes(){
         createBg()
         setupPhysics()
+        setupSequenceType()
         tossHandler()
     }
     
@@ -68,7 +72,34 @@ extension GameScene {
     func tossHandler(){
         // time to spawn fruit
         popupTime *= 0.991
-        createSprite()
+        let sequence = sequenceType[sequencePos]
+        switch sequence {
+        case .OneNoBomb:
+            createSprite(.Never)
+        case .One:
+            createSprite()
+        case .TwoWithOneBomb:
+            createSprite(.Never)
+            createSprite(.Always)
+        case .Two:
+            createSprite()
+            createSprite()
+        case .Three:
+            createSprite()
+            createSprite()
+            createSprite()
+        case .Four:
+            createSprite()
+            createSprite()
+            createSprite()
+            createSprite()
+        case .Five:
+            createSprite()
+        case .Six:
+            createSprite()
+            
+        }
+        sequencePos += 1
         isNextSequenceQueued = false
     }
     
@@ -84,7 +115,7 @@ extension GameScene {
         
         // If the force bomb is always
         if bombType == 0 {
-            let sprite = SKSpriteNode()
+            sprite = SKSpriteNode()
             sprite.zPosition = 1.0
             sprite.setScale(1.5)
             sprite.name = "BombContainer"
@@ -94,7 +125,7 @@ extension GameScene {
             sprite.addChild(bomb)
         } else {
             // creating and configuring fruits
-            let sprite = SKSpriteNode(imageNamed: "fruit_2")
+            sprite = SKSpriteNode(imageNamed: "fruit_2")
             sprite.setScale(1.5)
             sprite.name = "Fruit"
         }
@@ -107,6 +138,21 @@ extension GameScene {
         sprite.physicsBody = SKPhysicsBody(circleOfRadius: 60.0)
         sprite.physicsBody?.collisionBitMask = 0
         addChild(sprite)
+    }
+    
+}
+
+// MARK: Sequence Type
+
+extension GameScene {
+    
+    func setupSequenceType(){
+        // Generating a random sequence
+        sequenceType = [.OneNoBomb, .One, .TwoWithOneBomb, .Two, .Three, .Four, .Five, .Six]
+        for _ in 0...1000{
+            let sequence = SequenceType(rawValue: Int.random(min: 2, max: 7))!
+            sequenceType.append(sequence)
+        }
     }
     
 }
