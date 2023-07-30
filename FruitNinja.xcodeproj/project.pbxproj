@@ -14,6 +14,15 @@
 		E923747E2A75E930000A18AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E923747D2A75E930000A18AD /* Assets.xcassets */; };
 		E92374812A75E930000A18AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E923747F2A75E930000A18AD /* LaunchScreen.storyboard */; };
 		E923748E2A75EB48000A18AD /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = E923748D2A75EB48000A18AD /* Types.swift */; };
+		E92374992A75EC7F000A18AD /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = E92374902A75EC7F000A18AD /* wrong.wav */; };
+		E923749A2A75EC7F000A18AD /* whack.wav in Resources */ = {isa = PBXBuildFile; fileRef = E92374912A75EC7F000A18AD /* whack.wav */; };
+		E923749B2A75EC7F000A18AD /* button.wav in Resources */ = {isa = PBXBuildFile; fileRef = E92374922A75EC7F000A18AD /* button.wav */; };
+		E923749C2A75EC7F000A18AD /* launch.wav in Resources */ = {isa = PBXBuildFile; fileRef = E92374932A75EC7F000A18AD /* launch.wav */; };
+		E923749D2A75EC7F000A18AD /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = E92374942A75EC7F000A18AD /* explosion.wav */; };
+		E923749E2A75EC7F000A18AD /* swoosh2.wav in Resources */ = {isa = PBXBuildFile; fileRef = E92374952A75EC7F000A18AD /* swoosh2.wav */; };
+		E923749F2A75EC7F000A18AD /* swoosh3.wav in Resources */ = {isa = PBXBuildFile; fileRef = E92374962A75EC7F000A18AD /* swoosh3.wav */; };
+		E92374A02A75EC7F000A18AD /* swoosh1.wav in Resources */ = {isa = PBXBuildFile; fileRef = E92374972A75EC7F000A18AD /* swoosh1.wav */; };
+		E92374A12A75EC7F000A18AD /* sliceBombFuse.wav in Resources */ = {isa = PBXBuildFile; fileRef = E92374982A75EC7F000A18AD /* sliceBombFuse.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +34,15 @@
 		E923747D2A75E930000A18AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E92374802A75E930000A18AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E923748D2A75EB48000A18AD /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		E92374902A75EC7F000A18AD /* wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrong.wav; sourceTree = "<group>"; };
+		E92374912A75EC7F000A18AD /* whack.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = whack.wav; sourceTree = "<group>"; };
+		E92374922A75EC7F000A18AD /* button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button.wav; sourceTree = "<group>"; };
+		E92374932A75EC7F000A18AD /* launch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = launch.wav; sourceTree = "<group>"; };
+		E92374942A75EC7F000A18AD /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
+		E92374952A75EC7F000A18AD /* swoosh2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = swoosh2.wav; sourceTree = "<group>"; };
+		E92374962A75EC7F000A18AD /* swoosh3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = swoosh3.wav; sourceTree = "<group>"; };
+		E92374972A75EC7F000A18AD /* swoosh1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = swoosh1.wav; sourceTree = "<group>"; };
+		E92374982A75EC7F000A18AD /* sliceBombFuse.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sliceBombFuse.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +75,7 @@
 		E923746F2A75E92E000A18AD /* FruitNinja */ = {
 			isa = PBXGroup;
 			children = (
+				E923748F2A75EC7F000A18AD /* Sounds */,
 				E923748C2A75EB3E000A18AD /* Types */,
 				E923748B2A75EA4B000A18AD /* Delegate */,
 				E923748A2A75EA42000A18AD /* Scenes */,
@@ -114,6 +133,23 @@
 				E923748D2A75EB48000A18AD /* Types.swift */,
 			);
 			path = Types;
+			sourceTree = "<group>";
+		};
+		E923748F2A75EC7F000A18AD /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				E92374902A75EC7F000A18AD /* wrong.wav */,
+				E92374912A75EC7F000A18AD /* whack.wav */,
+				E92374922A75EC7F000A18AD /* button.wav */,
+				E92374932A75EC7F000A18AD /* launch.wav */,
+				E92374942A75EC7F000A18AD /* explosion.wav */,
+				E92374952A75EC7F000A18AD /* swoosh2.wav */,
+				E92374962A75EC7F000A18AD /* swoosh3.wav */,
+				E92374972A75EC7F000A18AD /* swoosh1.wav */,
+				E92374982A75EC7F000A18AD /* sliceBombFuse.wav */,
+			);
+			name = Sounds;
+			path = "../../../../Downloads/fruitninja-resources-master/Sounds";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,9 +210,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E92374A12A75EC7F000A18AD /* sliceBombFuse.wav in Resources */,
+				E92374A02A75EC7F000A18AD /* swoosh1.wav in Resources */,
 				E923747C2A75E92E000A18AD /* Main.storyboard in Resources */,
 				E923747E2A75E930000A18AD /* Assets.xcassets in Resources */,
+				E923749D2A75EC7F000A18AD /* explosion.wav in Resources */,
+				E923749F2A75EC7F000A18AD /* swoosh3.wav in Resources */,
+				E923749B2A75EC7F000A18AD /* button.wav in Resources */,
+				E92374992A75EC7F000A18AD /* wrong.wav in Resources */,
+				E923749E2A75EC7F000A18AD /* swoosh2.wav in Resources */,
+				E923749C2A75EC7F000A18AD /* launch.wav in Resources */,
 				E92374812A75E930000A18AD /* LaunchScreen.storyboard in Resources */,
+				E923749A2A75EC7F000A18AD /* whack.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
