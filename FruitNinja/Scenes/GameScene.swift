@@ -12,6 +12,7 @@ class GameScene: SKScene {
     
     // MARK: - Properties
     var popupTime: Double = 0.9
+    var isNextSequenceQueued = true
     
     //MARK: - Lifecycle
     
@@ -20,8 +21,9 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        run(.wait(forDuration: popupTime)){
-            self.tossHandler()
+        if !isNextSequenceQueued {
+            run(.wait(forDuration: popupTime)){self.tossHandler()}
+            isNextSequenceQueued = true
         }
     }
     
@@ -59,15 +61,19 @@ extension GameScene {
     
     func tossHandler(){
         // time to spawn fruit
-        popupTime *= 0.0991
+        popupTime *= 0.991
         createSprite()
+        isNextSequenceQueued = false
     }
     
     func createSprite(){
         let sprite = SKSpriteNode(imageNamed: "fruit_2")
         sprite.setScale(1.5)
         sprite.name = "Fruit"
-        sprite.position = CGPoint(x: frame.midX, y: frame.midY)
+        let spriteW = sprite.frame.width
+        let xRandom = CGFloat.random(min: frame.minX + spriteW, max: frame.maxX - spriteW)
+        let pos = CGPoint(x: xRandom, y: frame.midY)
+        sprite.position = pos
         addChild(sprite)
     }
     
