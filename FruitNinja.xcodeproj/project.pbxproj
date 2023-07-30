@@ -23,6 +23,7 @@
 		E923749F2A75EC7F000A18AD /* swoosh3.wav in Resources */ = {isa = PBXBuildFile; fileRef = E92374962A75EC7F000A18AD /* swoosh3.wav */; };
 		E92374A02A75EC7F000A18AD /* swoosh1.wav in Resources */ = {isa = PBXBuildFile; fileRef = E92374972A75EC7F000A18AD /* swoosh1.wav */; };
 		E92374A12A75EC7F000A18AD /* sliceBombFuse.wav in Resources */ = {isa = PBXBuildFile; fileRef = E92374982A75EC7F000A18AD /* sliceBombFuse.wav */; };
+		E92374A42A75F09B000A18AD /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92374A32A75F09B000A18AD /* Int+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		E92374962A75EC7F000A18AD /* swoosh3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = swoosh3.wav; sourceTree = "<group>"; };
 		E92374972A75EC7F000A18AD /* swoosh1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = swoosh1.wav; sourceTree = "<group>"; };
 		E92374982A75EC7F000A18AD /* sliceBombFuse.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sliceBombFuse.wav; sourceTree = "<group>"; };
+		E92374A32A75F09B000A18AD /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 		E923746F2A75E92E000A18AD /* FruitNinja */ = {
 			isa = PBXGroup;
 			children = (
+				E92374A22A75F08E000A18AD /* Utilities */,
 				E923748F2A75EC7F000A18AD /* Sounds */,
 				E923748C2A75EB3E000A18AD /* Types */,
 				E923748B2A75EA4B000A18AD /* Delegate */,
@@ -150,6 +153,14 @@
 			);
 			name = Sounds;
 			path = "../../../../Downloads/fruitninja-resources-master/Sounds";
+			sourceTree = "<group>";
+		};
+		E92374A22A75F08E000A18AD /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E92374A32A75F09B000A18AD /* Int+Ext.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E92374A42A75F09B000A18AD /* Int+Ext.swift in Sources */,
 				E92374772A75E92E000A18AD /* GameScene.swift in Sources */,
 				E92374792A75E92E000A18AD /* GameViewController.swift in Sources */,
 				E92374712A75E92E000A18AD /* AppDelegate.swift in Sources */,
