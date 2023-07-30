@@ -158,6 +158,14 @@ extension GameScene {
         tossHandler()
     }
     
+    func drawPlayableArea(){
+        let shape = SKShapeNode(rect: playableRect)
+        shape.lineWidth = 5.0
+        shape.strokeColor = .red
+        shape.fillColor = .clear
+        addChild(shape)
+    }
+    
     func setupPhysics(){
         physicsWorld.gravity = CGVector(dx: 0.0, dy: -6.0)
         physicsWorld.speed = 0.85
