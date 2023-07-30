@@ -24,6 +24,7 @@
 		E92374A02A75EC7F000A18AD /* swoosh1.wav in Resources */ = {isa = PBXBuildFile; fileRef = E92374972A75EC7F000A18AD /* swoosh1.wav */; };
 		E92374A12A75EC7F000A18AD /* sliceBombFuse.wav in Resources */ = {isa = PBXBuildFile; fileRef = E92374982A75EC7F000A18AD /* sliceBombFuse.wav */; };
 		E92374A42A75F09B000A18AD /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92374A32A75F09B000A18AD /* Int+Ext.swift */; };
+		E92374A62A75F14C000A18AD /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92374A52A75F14C000A18AD /* CGFloat+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		E92374972A75EC7F000A18AD /* swoosh1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = swoosh1.wav; sourceTree = "<group>"; };
 		E92374982A75EC7F000A18AD /* sliceBombFuse.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sliceBombFuse.wav; sourceTree = "<group>"; };
 		E92374A32A75F09B000A18AD /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
+		E92374A52A75F14C000A18AD /* CGFloat+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				E92374A32A75F09B000A18AD /* Int+Ext.swift */,
+				E92374A52A75F14C000A18AD /* CGFloat+Ext.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E92374A62A75F14C000A18AD /* CGFloat+Ext.swift in Sources */,
 				E92374A42A75F09B000A18AD /* Int+Ext.swift in Sources */,
 				E92374772A75E92E000A18AD /* GameScene.swift in Sources */,
 				E92374792A75E92E000A18AD /* GameViewController.swift in Sources */,
