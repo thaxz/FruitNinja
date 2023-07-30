@@ -72,13 +72,35 @@ extension GameScene {
         isNextSequenceQueued = false
     }
     
-    func createSprite(){
-        // creating and configuring fruits
-        let sprite = SKSpriteNode(imageNamed: "fruit_2")
-        sprite.setScale(1.5)
-        sprite.name = "Fruit"
-        let spriteW = sprite.frame.width
+    func createSprite(_ forceBomb: ForceBomb = .Defaults){
+        var sprite = SKSpriteNode()
+        // creating bombs
+        var bombType = Int.random(min: 1, max: 6)
+        if forceBomb == .Never {
+            bombType = 1
+        } else if forceBomb == .Always {
+            bombType = 0
+        }
+        
+        // If the force bomb is always
+        if bombType == 0 {
+            let sprite = SKSpriteNode()
+            sprite.zPosition = 1.0
+            sprite.setScale(1.5)
+            sprite.name = "BombContainer"
+            
+            let bomb = SKSpriteNode(imageNamed: "bomb_1")
+            bomb.name = "bomb"
+            sprite.addChild(bomb)
+        } else {
+            // creating and configuring fruits
+            let sprite = SKSpriteNode(imageNamed: "fruit_2")
+            sprite.setScale(1.5)
+            sprite.name = "Fruit"
+        }
+        
         // Spawning at a random position
+        let spriteW = sprite.frame.width
         let xRandom = CGFloat.random(min: frame.minX + spriteW, max: frame.maxX - spriteW)
         let pos = CGPoint(x: xRandom, y: frame.midY)
         sprite.position = pos

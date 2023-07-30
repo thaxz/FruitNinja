@@ -25,6 +25,7 @@
 		E92374A12A75EC7F000A18AD /* sliceBombFuse.wav in Resources */ = {isa = PBXBuildFile; fileRef = E92374982A75EC7F000A18AD /* sliceBombFuse.wav */; };
 		E92374A42A75F09B000A18AD /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92374A32A75F09B000A18AD /* Int+Ext.swift */; };
 		E92374A62A75F14C000A18AD /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92374A52A75F14C000A18AD /* CGFloat+Ext.swift */; };
+		E92374A92A75F5AA000A18AD /* EnumType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92374A82A75F5AA000A18AD /* EnumType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		E92374982A75EC7F000A18AD /* sliceBombFuse.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sliceBombFuse.wav; sourceTree = "<group>"; };
 		E92374A32A75F09B000A18AD /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
 		E92374A52A75F14C000A18AD /* CGFloat+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
+		E92374A82A75F5AA000A18AD /* EnumType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		E923746F2A75E92E000A18AD /* FruitNinja */ = {
 			isa = PBXGroup;
 			children = (
+				E92374A72A75F59E000A18AD /* Enums */,
 				E92374A22A75F08E000A18AD /* Utilities */,
 				E923748F2A75EC7F000A18AD /* Sounds */,
 				E923748C2A75EB3E000A18AD /* Types */,
@@ -166,6 +169,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		E92374A72A75F59E000A18AD /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				E92374A82A75F5AA000A18AD /* EnumType.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -247,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E92374A62A75F14C000A18AD /* CGFloat+Ext.swift in Sources */,
+				E92374A92A75F5AA000A18AD /* EnumType.swift in Sources */,
 				E92374A42A75F09B000A18AD /* Int+Ext.swift in Sources */,
 				E92374772A75E92E000A18AD /* GameScene.swift in Sources */,
 				E92374792A75E92E000A18AD /* GameViewController.swift in Sources */,
