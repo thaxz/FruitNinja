@@ -19,6 +19,11 @@ class GameScene: SKScene {
     var sequenceType: [SequenceType] = []
     var activeSprites: [SKNode] = []
     
+    // to form the belziers curve
+    var activeSliceBG: SKShapeNode!
+    var activeSliceFG: SKShapeNode!
+    var activeSlicePoints: [CGPoint] = []
+    
     //MARK: - Lifecycle
     
     override func didMove(to view: SKView) {
@@ -62,6 +67,8 @@ extension GameScene {
         createBg()
         setupPhysics()
         setupSequenceType()
+        createSlice()
+        
         tossHandler()
     }
     
@@ -94,6 +101,7 @@ extension GameScene {
         // time to spawn fruit
         popupTime *= 0.991
         delay *= 0.99
+        physicsWorld.speed *= 1.02
         // creating sequence
         let sequence = sequenceType[sequencePos]
         switch sequence {
@@ -207,6 +215,47 @@ extension GameScene {
             let sequence = SequenceType(rawValue: Int.random(min: 2, max: 7))!
             sequenceType.append(sequence)
         }
+    }
+    
+}
+
+// MARK: Slice
+
+extension GameScene {
+    
+    func createSlice(){
+        activeSliceBG = SKShapeNode()
+        activeSliceBG.zPosition = 2.0
+        activeSliceBG.lineWidth = 9.0
+        activeSliceBG.strokeColor = UIColor(red: 1.0, green: 0.9, blue: 0.0, alpha: 1)
+        
+        activeSliceFG = SKShapeNode()
+        activeSliceFG.zPosition = 2.0
+        activeSliceFG.lineWidth = 5.0
+        activeSliceFG.strokeColor = .white
+        
+        addChild(activeSliceBG)
+        addChild(activeSliceFG)
+    }
+    
+    func redrawActiveSlice(){
+        if activeSlicePoints.count < 2 {
+            activeSliceBG.path = nil
+            activeSliceFG.path = nil
+            return
+        }
+        while activeSlicePoints.count > 12 {
+            activeSlicePoints.remove(at: 0)
+        }
+        let bezierPath = UIBezierPath()
+        bezierPath.move(to: activeSlicePoints[0])
+        
+        for i in 0..<activeSlicePoints.count {
+            bezierPath.addLine(to: activeSlicePoints[i])
+        }
+        
+        activeSliceBG.path = bezierPath.cgPath
+        activeSliceFG.path = bezierPath.cgPath
     }
     
 }
