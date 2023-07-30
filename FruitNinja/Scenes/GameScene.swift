@@ -134,9 +134,26 @@ extension GameScene {
         let spriteW = sprite.frame.width
         let xRandom = CGFloat.random(min: frame.minX + spriteW, max: frame.maxX - spriteW)
         let pos = CGPoint(x: xRandom, y: frame.midY)
+        let angularVelocity = CGFloat.random(min: -6.0, max: 6.0)/2
+        let yVelocity = Int.random(min: 24, max: 32)
+        let xVelocity: Int
+        let value = frame.minX + 256
+        
+        if pos.x < value {
+            xVelocity = Int.random(min: 8, max: 100)
+        } else if pos.x < value*2 {
+            xVelocity = Int.random(min: 3, max: 5)
+        } else if pos.x < frame.maxX {
+            xVelocity = Int.random(min: 3, max: 5)
+        } else {
+            xVelocity = Int.random(min: 8, max: 15)
+        }
+        
         sprite.position = pos
         sprite.physicsBody = SKPhysicsBody(circleOfRadius: 60.0)
         sprite.physicsBody?.collisionBitMask = 0
+        sprite.physicsBody?.angularVelocity = angularVelocity
+        sprite.physicsBody?.velocity = CGVector(dx: CGFloat(xVelocity*40), dy: CGFloat(yVelocity*40))
         addChild(sprite)
     }
     
