@@ -13,6 +13,7 @@
 		E923747C2A75E92E000A18AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E923747A2A75E92E000A18AD /* Main.storyboard */; };
 		E923747E2A75E930000A18AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E923747D2A75E930000A18AD /* Assets.xcassets */; };
 		E92374812A75E930000A18AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E923747F2A75E930000A18AD /* LaunchScreen.storyboard */; };
+		E923748E2A75EB48000A18AD /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = E923748D2A75EB48000A18AD /* Types.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		E923747B2A75E92E000A18AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E923747D2A75E930000A18AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E92374802A75E930000A18AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E923748D2A75EB48000A18AD /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		E923746F2A75E92E000A18AD /* FruitNinja */ = {
 			isa = PBXGroup;
 			children = (
+				E923748C2A75EB3E000A18AD /* Types */,
 				E923748B2A75EA4B000A18AD /* Delegate */,
 				E923748A2A75EA42000A18AD /* Scenes */,
 				E92374892A75EA3B000A18AD /* Controllers */,
@@ -103,6 +106,14 @@
 				E92374702A75E92E000A18AD /* AppDelegate.swift */,
 			);
 			path = Delegate;
+			sourceTree = "<group>";
+		};
+		E923748C2A75EB3E000A18AD /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				E923748D2A75EB48000A18AD /* Types.swift */,
+			);
+			path = Types;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +190,7 @@
 				E92374772A75E92E000A18AD /* GameScene.swift in Sources */,
 				E92374792A75E92E000A18AD /* GameViewController.swift in Sources */,
 				E92374712A75E92E000A18AD /* AppDelegate.swift in Sources */,
+				E923748E2A75EB48000A18AD /* Types.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
