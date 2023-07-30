@@ -52,10 +52,43 @@ class GameScene: SKScene {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
+        // Fading the path
+        activeSliceBG.run(.fadeAlpha(to: 0.0, duration: 0.25))
+        activeSliceFG.run(.fadeAlpha(to: 0.0, duration: 0.25))
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesMoved(touches, with: event)
+        guard let touch = touches.first else {return}
+        //upadting the location
+        let location = touch.location(in: self)
+        activeSlicePoints.append(location)
+        redrawActiveSlice()
+        // removing the node that was sliced
+        let ns = nodes(at: location)
+        for node in ns {
+            if node.name == "Fruit" {
+                node.name = nil
+                node.physicsBody?.isDynamic = false
+                
+                let scaleOut = SKAction.scale(to: 0.001, duration: 0.2)
+                let fadeOut = SKAction.fadeOut(withDuration: 0.2)
+                let groupAct = SKAction.group([scaleOut, fadeOut])
+                let sequence = SKAction.sequence([groupAct, .removeFromParent()])
+                node.run(sequence)
+            } else if node.name == "Bomb" {
+                node.name = nil
+                node.parent!.physicsBody?.isDynamic = false
+                
+                let scaleOut = SKAction.scale(to: 0.001, duration: 0.2)
+                let fadeOut = SKAction.fadeOut(withDuration: 0.2)
+                let groupAct = SKAction.group([scaleOut, fadeOut])
+                let sequence = SKAction.sequence([groupAct, .removeFromParent()])
+                node.parent!.run(sequence)
+                
+                removeSprite(node.parent!, nodes: &activeSprites)
+            }
+        }
     }
     
     override func update(_ currentTime: TimeInterval) {
