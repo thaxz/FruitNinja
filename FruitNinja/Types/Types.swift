@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
-public let screenWidth: CGFloat = 2048.0
-public let screenHeight: CGFloat = 1536.0
+public let screenWidth = UIScreen.main.bounds.width
+public let screenHeight = UIScreen.main.bounds.height

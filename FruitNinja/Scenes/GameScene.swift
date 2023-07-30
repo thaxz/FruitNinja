@@ -15,6 +15,7 @@ class GameScene: SKScene {
     //MARK: - Lifecycle
     
     override func didMove(to view: SKView) {
+        setupNodes()
     }
     
    
@@ -24,6 +25,22 @@ class GameScene: SKScene {
 
 extension GameScene {
     
+    func setupNodes(){
+        createBg()
+    }
     
+    
+}
+
+// MARK: Background
+
+extension GameScene {
+    
+    func createBg(){
+        let bg = SKSpriteNode(imageNamed: "background")
+        bg.position = CGPoint(x: frame.width/2, y: frame.height/2)
+        bg.zPosition = -1
+        addChild(bg)
+    }
     
 }
