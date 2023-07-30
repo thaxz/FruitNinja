@@ -24,6 +24,18 @@ class GameScene: SKScene {
     var activeSliceFG: SKShapeNode!
     var activeSlicePoints: [CGPoint] = []
     
+    //score
+    var scoreLb: SKLabelNode!
+    var score: Int = 0 {
+        willSet {
+            scoreLb.text = "\(newValue)"
+            scoreLb.run(.sequence([
+                .scale(to: 1.5, duration: 0.1),
+                .scale(to: 1.0, duration: 0.1)
+            ]))
+        }
+    }
+    
     //MARK: - Lifecycle
     
     override func didMove(to view: SKView) {
@@ -76,6 +88,8 @@ class GameScene: SKScene {
                 let groupAct = SKAction.group([scaleOut, fadeOut])
                 let sequence = SKAction.sequence([groupAct, .removeFromParent()])
                 node.run(sequence)
+                
+                removeSprite(node, nodes: &activeSprites)
             } else if node.name == "Bomb" {
                 node.name = nil
                 node.parent!.physicsBody?.isDynamic = false
@@ -129,6 +143,7 @@ extension GameScene {
         setupPhysics()
         setupSequenceType()
         createSlice()
+        createScore()
         
         tossHandler()
     }
@@ -317,6 +332,23 @@ extension GameScene {
         
         activeSliceBG.path = bezierPath.cgPath
         activeSliceFG.path = bezierPath.cgPath
+    }
+    
+}
+
+// MARK: Score
+
+extension GameScene {
+    
+    func createScore(){
+        scoreLb = SKLabelNode(fontNamed:  "HelveticaNeue-Bold")
+        scoreLb.text = "0"
+        scoreLb.zPosition = 5
+        scoreLb.fontSize = 80.0
+        scoreLb.verticalAlignmentMode = .center
+        scoreLb.horizontalAlignmentMode = .center
+        scoreLb.position = CGPoint(x: frame.midX, y: frame.maxY - 100)
+        addChild(scoreLb)
     }
     
 }
