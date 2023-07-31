@@ -99,6 +99,8 @@ class GameScene: SKScene {
                 let sequence = SKAction.sequence([groupAct, .removeFromParent()])
                 node.run(sequence)
                 
+                // increasing the score
+                score += 1
                 removeSprite(node, nodes: &activeSprites)
             } else if node.name == "Bomb" {
                 node.name = nil
@@ -141,7 +143,7 @@ class GameScene: SKScene {
         }
     }
     
-   
+    
 }
 
 // MARK: Configues
@@ -359,14 +361,25 @@ extension GameScene {
 extension GameScene {
     
     func createScore(){
+        
+        let width: CGFloat =    250.0
+        let height: CGFloat = 100.0
+        let yPos = appDl.iPad ? frame.maxY - height-20 : playableRect.maxY - height-20
+        let shapeRect = CGRect(x: frame.midX - width/2, y: yPos, width: width, height: height)
+        let shape = SKShapeNode(rect: shapeRect, cornerRadius: 8.0)
+        shape.strokeColor = .clear
+        shape.fillColor = UIColor.black.withAlphaComponent(0.5)
+        shape.zPosition = 5
+        addChild(shape)
+        
         scoreLb = SKLabelNode(fontNamed:  "HelveticaNeue-Bold")
         scoreLb.text = "0"
         scoreLb.zPosition = 5
         scoreLb.fontSize = 80.0
         scoreLb.verticalAlignmentMode = .center
         scoreLb.horizontalAlignmentMode = .center
-        scoreLb.position = CGPoint(x: frame.midX, y: appDl.iPad ? frame.maxY - 100 : playableRect.maxY - 100)
-        addChild(scoreLb)
+        scoreLb.position = CGPoint(x: shape.frame.midX, y: shape.frame.midY)
+        shape.addChild(scoreLb)
     }
     
 }
