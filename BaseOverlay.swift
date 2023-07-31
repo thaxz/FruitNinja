@@ -45,12 +45,26 @@ extension BaseOverlay {
         addChild(bgNode)
     }
     
+    // fadding in popup
     internal func fadeInBG(){
         bgNode.alpha = 0.0
         bgNode.isHidden = false
         let fade = SKAction.fadeAlpha(to: 1.0, duration: 0.5)
         fade.timingMode = .easeOut
         bgNode.run(fade)
+    }
+    
+    internal func fadeIn(_ node: SKNode, delay: TimeInterval, completion: (() -> Void)? = nil ){
+        var actions: [SKAction] = []
+        node.alpha = 0.0
+        if delay > 0.0 {
+            actions.append(.wait(forDuration: delay))
+        }
+        
+        let fade = SKAction.fadeAlpha(to: 1.0, duration: 0.8)
+        fade.timingMode = .easeOut
+        actions.append(fade)
+        node.run(.sequence(actions)) {completion?()}
     }
     
 }
