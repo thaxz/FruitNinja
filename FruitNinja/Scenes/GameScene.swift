@@ -138,6 +138,21 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        
+        // counting bombs
+        var bombCount = 0
+        for node in activeSprites {
+            if node.name == "BombContainer" {
+                bombCount += 1
+                break
+            }
+        }
+        
+        if bombCount == 0 {
+            SKTAudio.shared.stopSoundEffect()
+        }
+        
+        // spawing fruits
         if activeSprites.count > 0 {
             activeSprites.forEach({
                 let height = $0.frame.height
@@ -279,6 +294,8 @@ extension GameScene {
             let bomb = SKSpriteNode(imageNamed: "bomb_1")
             bomb.name = "bomb"
             sprite.addChild(bomb)
+            // playing music
+            SKTAudio.shared.playSoundEffect(SoundType.sliceBombFuse.rawValue)
         } else {
             // creating and configuring fruits
             sprite = SKSpriteNode(imageNamed: "fruit_2")
@@ -451,6 +468,7 @@ extension GameScene {
     func setupGameOver(_ isGameOver: Bool){
         physicsWorld.speed = 0.0
         isUserInteractionEnabled = false
+        SKTAudio.shared.stopSoundEffect()
         if isGameOver {
             let texture = SKTexture(imageNamed: "sliceLifeGone")
             livesNodes[0].texture = texture
