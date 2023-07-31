@@ -133,6 +133,7 @@ class GameScene: SKScene {
                         $0.removeFromParent()
                         removeSprite($0, nodes: &activeSprites)
                     } else if $0.name == "Fruit" {
+                        subtrackLife()
                         $0.name = nil
                         $0.removeFromParent()
                         removeSprite($0, nodes: &activeSprites)
@@ -408,5 +409,20 @@ extension GameScene {
     }
     
     // subtracting lifes
+    func subtrackLife(){
+        lives -= 1
+        let sprite: SKSpriteNode
+        if lives == 2{
+            sprite = livesNodes[0]
+        } else if lives == 1 {
+            sprite = livesNodes[1]
+        } else {
+            sprite = livesNodes[2]
+        }
+        sprite.texture = SKTexture(imageNamed: "sliceLifeGone")
+        sprite.xScale = 1.5*1.3
+        sprite.yScale = 1.5*1.3
+        sprite.run(.scale(to: 1.5, duration: 0.1))
+    }
     
 }
