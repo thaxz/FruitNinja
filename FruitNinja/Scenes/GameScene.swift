@@ -114,6 +114,9 @@ class GameScene: SKScene {
         let ns = nodes(at: location)
         for node in ns {
             if node.name == "Fruit" {
+                // adding slice particle
+                createEmitter("SliceHitFruit", pos: node.position, node: self)
+                
                 node.name = nil
                 node.physicsBody?.isDynamic = false
                 
@@ -504,5 +507,13 @@ extension GameScene {
 // MARK: SKEmitterNode
 
 extension GameScene {
+    
+    // creating particles
+    
+    func createEmitter(_ fn: String, pos: CGPoint, node: SKNode){
+      let emitter = SKEmitterNode(fileNamed: fn)!
+        emitter.position = pos
+        node.addChild(emitter)
+    }
     
 }
