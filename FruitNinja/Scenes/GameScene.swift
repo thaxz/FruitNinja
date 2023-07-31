@@ -36,6 +36,10 @@ class GameScene: SKScene {
         }
     }
     
+    // lives
+    var livesNodes: [SKSpriteNode] = []
+    var lives = 3
+    
     // the playable area
     var playableRect: CGRect {
         let ratio: CGFloat = appDl.iPhoneX ? 2.16 : 16/9
@@ -157,6 +161,7 @@ extension GameScene {
         createSlice()
         createScore()
         drawPlayableArea()
+        createLives()
         tossHandler()
     }
     
@@ -381,5 +386,27 @@ extension GameScene {
         scoreLb.position = CGPoint(x: shape.frame.midX, y: shape.frame.midY)
         shape.addChild(scoreLb)
     }
+    
+}
+
+// MARK: Life
+
+extension GameScene {
+    
+    // creating life nodes
+    func createLives(){
+        for i in 0..<3 {
+            let sprite = SKSpriteNode(imageNamed: "sliceLife")
+            sprite.setScale(1.5)
+            let spriteW = sprite.frame.width
+            let spriteH = sprite.frame.height
+            let yPos = appDl.iPad ? frame.maxY - spriteH : playableRect.maxY - spriteH
+            sprite.position = CGPoint(x: CGFloat(i)*spriteW + 70, y: yPos + 30)
+            addChild(sprite)
+            livesNodes.append(sprite)
+        }
+    }
+    
+    // subtracting lifes
     
 }
