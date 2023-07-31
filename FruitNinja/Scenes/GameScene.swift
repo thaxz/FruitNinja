@@ -132,6 +132,7 @@ class GameScene: SKScene {
                 run(whackSound)
                 
             } else if node.name == "Bomb" {
+                createEmitter("SliceHitBomb", pos: node.position, node: self)
                 node.name = nil
                 node.parent!.physicsBody?.isDynamic = false
                 
@@ -308,6 +309,9 @@ extension GameScene {
             sprite.addChild(bomb)
             // playing music
             SKTAudio.shared.playSoundEffect(SoundType.sliceBombFuse.rawValue)
+            // adding effect to the bomb as if its about to explode
+            let pos = CGPoint(x: bomb.frame.midX+35, y: bomb.frame.maxY+5)
+            createEmitter("SliceFuse", pos: pos, node: sprite)
         } else {
             // creating and configuring fruits
             sprite = SKSpriteNode(imageNamed: "fruit_2")
