@@ -117,6 +117,7 @@ class GameScene: SKScene {
                 node.parent!.run(sequence)
                 
                 removeSprite(node.parent!, nodes: &activeSprites)
+                setupGameOver(true)
             }
         }
     }
@@ -418,11 +419,29 @@ extension GameScene {
             sprite = livesNodes[1]
         } else {
             sprite = livesNodes[2]
+            setupGameOver(false)
         }
         sprite.texture = SKTexture(imageNamed: "sliceLifeGone")
         sprite.xScale = 1.5*1.3
         sprite.yScale = 1.5*1.3
         sprite.run(.scale(to: 1.5, duration: 0.1))
+    }
+    
+}
+
+// MARK: Game over
+
+extension GameScene {
+    
+    func setupGameOver(_ isGameOver: Bool){
+        physicsWorld.speed = 0.0
+        isUserInteractionEnabled = false
+        if isGameOver {
+            let texture = SKTexture(imageNamed: "sliceLifeGone")
+            livesNodes[0].texture = texture
+            livesNodes[1].texture = texture
+            livesNodes[2].texture = texture
+        }
     }
     
 }
