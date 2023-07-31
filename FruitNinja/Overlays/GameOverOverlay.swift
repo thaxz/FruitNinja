@@ -51,3 +51,44 @@ class GameOverOverlay: BaseOverlay {
     }
     
 }
+
+// MARK: Setups
+
+extension GameOverOverlay {
+    
+    func setups(_ isPlay: Bool = false){
+        isUserInteractionEnabled = true
+        let rect = gameScene.playableRect
+        let continueW: CGFloat = appDl.iPad ? 600.0 : rect.width*0.6
+        let continueH: CGFloat = appDl.iPhoneX ? 150.0 : 180.0
+        
+        guard !isPlay else {
+            return
+        }
+    }
+    
+    private func createBGNode(_ rect: CGRect, corner: CGFloat = 0.0) -> SKShapeNode {
+        let bgColor = UIColor(red: 206/255, green: 142/255, blue: 96/255, alpha: 0.5)
+        let shapeNode = SKShapeNode(rect: rect, cornerRadius: corner)
+        shapeNode.strokeColor = bgColor
+        shapeNode.fillColor = bgColor
+        shapeNode.isHidden = true
+        addChild(shapeNode)
+        return shapeNode
+    }
+    
+    private func createLb(_ pos: CGPoint, hori: SKLabelHorizontalAlignmentMode, verti: SKLabelVerticalAlignmentMode, txt: String, fontC: UIColor = .white, fontS: CGFloat = 45) -> SKLabelNode {
+        let lbl = SKLabelNode(fontNamed: "HelveticaNeue-Bold")
+        lbl.fontColor = fontC
+        lbl.fontSize = fontS
+        lbl.text = txt
+        lbl.horizontalAlignmentMode = hori
+        lbl.verticalAlignmentMode = verti
+        lbl.position = pos
+        lbl.isHidden = true
+        addChild(lbl)
+        return lbl
+    }
+    
+    
+}
