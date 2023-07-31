@@ -465,6 +465,7 @@ extension GameScene {
     // subtracting lifes
     func subtrackLife(){
         lives -= 1
+        run(wrongSound)
         let sprite: SKSpriteNode
         if lives == 2{
             sprite = livesNodes[0]
