@@ -56,7 +56,7 @@ class GameScene: SKScene {
     let explosionSound = SKAction.playSoundFileNamed(SoundType.explosion.rawValue, waitForCompletion: false)
     let launchSound = SKAction.playSoundFileNamed(SoundType.launch.rawValue, waitForCompletion: false)
     let sliceBombFuseSound = SKAction.playSoundFileNamed(SoundType.sliceBombFuse.rawValue, waitForCompletion: false)
-    let smooshSounds: [SKAction] = [
+    let swooshSounds: [SKAction] = [
         SKAction.playSoundFileNamed(SoundType.smoosh1.rawValue, waitForCompletion: false),
         SKAction.playSoundFileNamed(SoundType.smoosh2.rawValue, waitForCompletion: false),
         SKAction.playSoundFileNamed(SoundType.smoosh3.rawValue, waitForCompletion: false)
@@ -64,6 +64,7 @@ class GameScene: SKScene {
     let whackSound = SKAction.playSoundFileNamed(SoundType.whack.rawValue, waitForCompletion: false)
     let wrongSound = SKAction.playSoundFileNamed(SoundType.wrong.rawValue, waitForCompletion: false)
     
+    var isSwooshSound = false
     
     //MARK: - Lifecycle
     
@@ -105,6 +106,10 @@ class GameScene: SKScene {
         let location = touch.location(in: self)
         activeSlicePoints.append(location)
         redrawActiveSlice()
+        
+        // playing swoosh sound everytime is slicing something
+        if !isSwooshSound {playSwooshSound()}
+        
         // removing the node that was sliced
         let ns = nodes(at: location)
         for node in ns {
@@ -121,6 +126,8 @@ class GameScene: SKScene {
                 // increasing the score
                 score += 1
                 removeSprite(node, nodes: &activeSprites)
+                run(whackSound)
+                
             } else if node.name == "Bomb" {
                 node.name = nil
                 node.parent!.physicsBody?.isDynamic = false
@@ -132,6 +139,8 @@ class GameScene: SKScene {
                 node.parent!.run(sequence)
                 
                 removeSprite(node.parent!, nodes: &activeSprites)
+                // explosion sound when bomb is sliced
+                run(explosionSound)
                 setupGameOver(true)
             }
         }
@@ -301,6 +310,7 @@ extension GameScene {
             sprite = SKSpriteNode(imageNamed: "fruit_2")
             sprite.setScale(1.5)
             sprite.name = "Fruit"
+            run(launchSound)
         }
         
         // Spawning at a random position
@@ -358,6 +368,7 @@ extension GameScene {
 
 extension GameScene {
     
+    // creating slice effect
     func createSlice(){
         activeSliceBG = SKShapeNode()
         activeSliceBG.zPosition = 2.0
@@ -373,6 +384,7 @@ extension GameScene {
         addChild(activeSliceFG)
     }
     
+    // redrawing to update path
     func redrawActiveSlice(){
         if activeSlicePoints.count < 2 {
             activeSliceBG.path = nil
@@ -391,6 +403,15 @@ extension GameScene {
         
         activeSliceBG.path = bezierPath.cgPath
         activeSliceFG.path = bezierPath.cgPath
+    }
+    
+    // play sound when slicing
+    func playSwooshSound(){
+        isSwooshSound = true
+        let soundAction = swooshSounds[Int.random(min: 0, max: 2)]
+        run(soundAction){
+            self.isSwooshSound = false
+        }
     }
     
 }
