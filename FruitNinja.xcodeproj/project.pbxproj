@@ -30,6 +30,7 @@
 		E9AF325A2A7853BB00085E04 /* SKTAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF32592A7853BB00085E04 /* SKTAudio.swift */; };
 		E9AF325E2A78684400085E04 /* SliceHitFruit.sks in Resources */ = {isa = PBXBuildFile; fileRef = E9AF325C2A78684400085E04 /* SliceHitFruit.sks */; };
 		E9AF325F2A78684400085E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9AF325D2A78684400085E04 /* Assets.xcassets */; };
+		E9AF32612A78695100085E04 /* SliceHitBomb.sks in Resources */ = {isa = PBXBuildFile; fileRef = E9AF32602A78695100085E04 /* SliceHitBomb.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		E9AF32592A7853BB00085E04 /* SKTAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKTAudio.swift; sourceTree = "<group>"; };
 		E9AF325C2A78684400085E04 /* SliceHitFruit.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SliceHitFruit.sks; sourceTree = "<group>"; };
 		E9AF325D2A78684400085E04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E9AF32602A78695100085E04 /* SliceHitBomb.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SliceHitBomb.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				E9AF325C2A78684400085E04 /* SliceHitFruit.sks */,
+				E9AF32602A78695100085E04 /* SliceHitBomb.sks */,
 				E9AF325D2A78684400085E04 /* Assets.xcassets */,
 			);
 			path = "SKS Files";
@@ -269,6 +272,7 @@
 				E92374812A75E930000A18AD /* LaunchScreen.storyboard in Resources */,
 				E9AF325E2A78684400085E04 /* SliceHitFruit.sks in Resources */,
 				E923749A2A75EC7F000A18AD /* whack.wav in Resources */,
+				E9AF32612A78695100085E04 /* SliceHitBomb.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
