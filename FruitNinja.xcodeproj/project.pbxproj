@@ -27,6 +27,7 @@
 		E92374A62A75F14C000A18AD /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92374A52A75F14C000A18AD /* CGFloat+Ext.swift */; };
 		E92374A92A75F5AA000A18AD /* EnumType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92374A82A75F5AA000A18AD /* EnumType.swift */; };
 		E9AF32582A78516000085E04 /* SoundType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF32572A78516000085E04 /* SoundType.swift */; };
+		E9AF325A2A7853BB00085E04 /* SKTAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF32592A7853BB00085E04 /* SKTAudio.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		E92374A52A75F14C000A18AD /* CGFloat+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
 		E92374A82A75F5AA000A18AD /* EnumType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumType.swift; sourceTree = "<group>"; };
 		E9AF32572A78516000085E04 /* SoundType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundType.swift; sourceTree = "<group>"; };
+		E9AF32592A7853BB00085E04 /* SKTAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKTAudio.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 			children = (
 				E92374A32A75F09B000A18AD /* Int+Ext.swift */,
 				E92374A52A75F14C000A18AD /* CGFloat+Ext.swift */,
+				E9AF32592A7853BB00085E04 /* SKTAudio.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				E92374A62A75F14C000A18AD /* CGFloat+Ext.swift in Sources */,
 				E92374A92A75F5AA000A18AD /* EnumType.swift in Sources */,
 				E92374A42A75F09B000A18AD /* Int+Ext.swift in Sources */,
+				E9AF325A2A7853BB00085E04 /* SKTAudio.swift in Sources */,
 				E92374772A75E92E000A18AD /* GameScene.swift in Sources */,
 				E92374792A75E92E000A18AD /* GameViewController.swift in Sources */,
 				E9AF32582A78516000085E04 /* SoundType.swift in Sources */,
