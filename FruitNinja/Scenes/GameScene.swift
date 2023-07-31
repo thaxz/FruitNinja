@@ -305,7 +305,7 @@ extension GameScene {
             sprite.name = "BombContainer"
             
             let bomb = SKSpriteNode(imageNamed: "bomb_1")
-            bomb.name = "bomb"
+            bomb.name = "Bomb"
             sprite.addChild(bomb)
             // playing music
             SKTAudio.shared.playSoundEffect(SoundType.sliceBombFuse.rawValue)
