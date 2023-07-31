@@ -29,8 +29,8 @@
 		E9AF32582A78516000085E04 /* SoundType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF32572A78516000085E04 /* SoundType.swift */; };
 		E9AF325A2A7853BB00085E04 /* SKTAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF32592A7853BB00085E04 /* SKTAudio.swift */; };
 		E9AF325E2A78684400085E04 /* SliceHitFruit.sks in Resources */ = {isa = PBXBuildFile; fileRef = E9AF325C2A78684400085E04 /* SliceHitFruit.sks */; };
-		E9AF325F2A78684400085E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9AF325D2A78684400085E04 /* Assets.xcassets */; };
 		E9AF32612A78695100085E04 /* SliceHitBomb.sks in Resources */ = {isa = PBXBuildFile; fileRef = E9AF32602A78695100085E04 /* SliceHitBomb.sks */; };
+		E9AF32632A786A0D00085E04 /* SliceFuse.sks in Resources */ = {isa = PBXBuildFile; fileRef = E9AF32622A786A0D00085E04 /* SliceFuse.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,8 +57,8 @@
 		E9AF32572A78516000085E04 /* SoundType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundType.swift; sourceTree = "<group>"; };
 		E9AF32592A7853BB00085E04 /* SKTAudio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKTAudio.swift; sourceTree = "<group>"; };
 		E9AF325C2A78684400085E04 /* SliceHitFruit.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SliceHitFruit.sks; sourceTree = "<group>"; };
-		E9AF325D2A78684400085E04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9AF32602A78695100085E04 /* SliceHitBomb.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SliceHitBomb.sks; sourceTree = "<group>"; };
+		E9AF32622A786A0D00085E04 /* SliceFuse.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SliceFuse.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,7 +195,7 @@
 			children = (
 				E9AF325C2A78684400085E04 /* SliceHitFruit.sks */,
 				E9AF32602A78695100085E04 /* SliceHitBomb.sks */,
-				E9AF325D2A78684400085E04 /* Assets.xcassets */,
+				E9AF32622A786A0D00085E04 /* SliceFuse.sks */,
 			);
 			path = "SKS Files";
 			sourceTree = "<group>";
@@ -262,7 +262,6 @@
 				E92374A02A75EC7F000A18AD /* swoosh1.wav in Resources */,
 				E923747C2A75E92E000A18AD /* Main.storyboard in Resources */,
 				E923747E2A75E930000A18AD /* Assets.xcassets in Resources */,
-				E9AF325F2A78684400085E04 /* Assets.xcassets in Resources */,
 				E923749D2A75EC7F000A18AD /* explosion.wav in Resources */,
 				E923749F2A75EC7F000A18AD /* swoosh3.wav in Resources */,
 				E923749B2A75EC7F000A18AD /* button.wav in Resources */,
@@ -273,6 +272,7 @@
 				E9AF325E2A78684400085E04 /* SliceHitFruit.sks in Resources */,
 				E923749A2A75EC7F000A18AD /* whack.wav in Resources */,
 				E9AF32612A78695100085E04 /* SliceHitBomb.sks in Resources */,
+				E9AF32632A786A0D00085E04 /* SliceFuse.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

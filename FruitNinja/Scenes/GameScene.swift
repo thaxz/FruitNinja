@@ -500,3 +500,9 @@ extension GameScene {
     }
     
 }
+
+// MARK: SKEmitterNode
+
+extension GameScene {
+    
+}
