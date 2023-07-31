@@ -50,6 +50,21 @@ class GameScene: SKScene {
         return CGRect(x: x, y: y, width: width, height: height)
     }
     
+    // Sounds
+    
+    let buttonSound = SKAction.playSoundFileNamed(SoundType.button.rawValue, waitForCompletion: false)
+    let explosionSound = SKAction.playSoundFileNamed(SoundType.explosion.rawValue, waitForCompletion: false)
+    let launchSound = SKAction.playSoundFileNamed(SoundType.launch.rawValue, waitForCompletion: false)
+    let sliceBombFuseSound = SKAction.playSoundFileNamed(SoundType.sliceBombFuse.rawValue, waitForCompletion: false)
+    let smooshSounds: [SKAction] = [
+        SKAction.playSoundFileNamed(SoundType.smoosh1.rawValue, waitForCompletion: false),
+        SKAction.playSoundFileNamed(SoundType.smoosh2.rawValue, waitForCompletion: false),
+        SKAction.playSoundFileNamed(SoundType.smoosh3.rawValue, waitForCompletion: false)
+    ]
+    let whackSound = SKAction.playSoundFileNamed(SoundType.whack.rawValue, waitForCompletion: false)
+    let wrongSound = SKAction.playSoundFileNamed(SoundType.wrong.rawValue, waitForCompletion: false)
+    
+    
     //MARK: - Lifecycle
     
     override func didMove(to view: SKView) {
