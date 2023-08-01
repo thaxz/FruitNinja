@@ -54,6 +54,18 @@ class GameOverOverlay: BaseOverlay {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
+        guard let touch = touches.first else {return}
+        let node = atPoint(touch.location(in: self))
+        
+        if node.name == SGOOverlaySettings.ContinueNode || node.name == SGOOverlaySettings.ContinueLb {
+            gameScene.run(gameScene.buttonSound)
+            if !isContinue {isContinue = true}
+            
+        } else if node.name == SGOOverlaySettings.PlayNode || node.name == SGOOverlaySettings.PlayLb {
+            gameScene.run(gameScene.buttonSound)
+            if !isPlay {isPlay = true}
+        }
+        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
