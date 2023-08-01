@@ -63,6 +63,16 @@ extension GameOverOverlay {
         let continueH: CGFloat = appDl.iPhoneX ? 150.0 : 180.0
         
         guard !isPlay else {
+            let playX = rect.midX - continueW/2
+            let playY = rect.midY - continueH/2
+            let playRect = CGRect(x: playX, y: playY, width: continueW, height: continueW)
+            playNode = createBGNode(playRect, corner: 16)
+            playNode.name = SGOOverlaySettings.PlayNode
+            
+            let pF = playNode.frame
+            let pPos = CGPoint(x: pF.midX, y: pF.midY)
+            playLb = createLb(pPos, hori: .center, verti: .center, txt: "Play", fontS: 60.0)
+            playLb.name = SGOOverlaySettings.PlayLb
             return
         }
         
