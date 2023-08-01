@@ -70,10 +70,27 @@ class GameOverOverlay: BaseOverlay {
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
      super.touchesMoved(touches, with: event)
+        
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
+        if isContinue {
+            gameScene.presentScene()
+            isContinue = false
+        }
+        if isPlay {
+            let fade = SKAction.fadeAlpha(to: 0.0, duration: 0.5)
+            bgNode.run(fade) {self.bgNode.isHidden = true}
+            playNode.run(.sequence([fade, .removeFromParent()]))
+            playLb.run(.sequence([fade, .removeFromParent()]))
+            
+            gameScene.isGameEnded = false
+            run(.wait(forDuration: 1.5)) {
+                self.gameScene.tossHandler()
+            }
+            
+        }
     }
     
 }
