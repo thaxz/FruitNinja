@@ -21,10 +21,10 @@ class GameOverOverlay: BaseOverlay {
     private var titleLb: SKLabelNode!
     
     private var continueLb: SKLabelNode!
-    private var continueNode: SKLabelNode!
+    private var continueNode: SKShapeNode!
     
     private var playLb: SKLabelNode!
-    private var playNode: SKLabelNode!
+    private var playNode: SKShapeNode!
     
     // MARK: Init
     
@@ -65,6 +65,27 @@ extension GameOverOverlay {
         guard !isPlay else {
             return
         }
+        
+        // continue bg
+        let continueX = rect.midX - continueW/2
+        let continueY = rect.minY+200
+        let continueRect = CGRect(x: continueX, y: continueY, width: continueW, height: continueH)
+        continueNode = createBGNode(continueRect, corner: 16)
+        continueNode.name = SGOOverlaySettings.ContinueNode
+        
+        let cF = continueNode.frame
+        let conPos = CGPoint(x: cF.midX, y: cF.midY)
+        continueLb = createLb(conPos, hori: .center, verti: .center, txt: "Continue")
+        continueLb.name = SGOOverlaySettings.ContinueLb
+        
+        titleLb = SKLabelNode(fontNamed: "HelveticaNeue-Bold")
+        titleLb.text = "GAME OVER"
+        titleLb.fontSize = 250
+        titleLb.numberOfLines = 0
+        titleLb.preferredMaxLayoutWidth = rect.width
+        titleLb.isHidden = true
+        titleLb.position = CGPoint(x: rect.midX, y: rect.height - titleLb.frame.height/2 - 100)
+        addChild(titleLb)
     }
     
     private func createBGNode(_ rect: CGRect, corner: CGFloat = 0.0) -> SKShapeNode {
