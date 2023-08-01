@@ -26,6 +26,20 @@ class GameOverOverlay: BaseOverlay {
     private var playLb: SKLabelNode!
     private var playNode: SKShapeNode!
     
+    var isContinue = false {
+        didSet {
+          updateBtn(true, event: isContinue, node: continueNode)
+            updateBtn(true, event: isContinue, node: continueLb)
+        }
+    }
+    
+    var isPlay = false {
+        didSet {
+            updateBtn(true, event: isContinue, node: playNode)
+            updateBtn(true, event: isContinue, node: playLb)
+        }
+    }
+    
     // MARK: Init
     
     override init(gameScene: GameScene, size: CGSize){
@@ -121,5 +135,14 @@ extension GameOverOverlay {
         return lbl
     }
     
+    private func updateBtn(_ anim: Bool, event: Bool, node: SKNode){
+        var alpha: CGFloat = 1.0
+        if event { alpha = 0.5 }
+        if anim {
+            node.run(.fadeAlpha(to: alpha, duration: 0.1))
+        } else {
+            node.alpha = alpha
+        }
+    }
     
 }
