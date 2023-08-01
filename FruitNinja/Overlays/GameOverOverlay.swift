@@ -70,7 +70,19 @@ class GameOverOverlay: BaseOverlay {
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
      super.touchesMoved(touches, with: event)
-        
+        guard let touch = touches.first else {return}
+        if isContinue {
+            if let parent = continueNode.parent {
+                let location = touch.location(in: parent)
+                isContinue = continueNode.contains(location)
+            }
+        }
+        if isPlay {
+            if let parent = playNode.parent {
+                let location = touch.location(in: parent)
+                isPlay = playNode.contains(location)
+            }
+        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -173,5 +185,16 @@ extension GameOverOverlay {
             node.alpha = alpha
         }
     }
+    
+    func showPlay(){
+        playNode.isHidden = false
+        playLb.isHidden = false
+        
+        fadeInBG()
+        fadeIn(playNode, delay: 0.5)
+        fadeIn(playLb, delay: 0.5
+    }
+               
+               
     
 }
