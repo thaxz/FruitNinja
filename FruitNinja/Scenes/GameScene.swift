@@ -11,6 +11,9 @@ import GameplayKit
 class GameScene: SKScene {
     
     // MARK: - Properties
+
+    var gameOverOverlay: GameOverOverlay!
+
     var popupTime: Double = 0.9
     var sequencePos = 0
     var delay = 3.0
@@ -66,6 +69,8 @@ class GameScene: SKScene {
     
     var isSwooshSound = false
     
+    var isGameEnded = false
+    var isReload = true
     //MARK: - Lifecycle
     
     override func didMove(to view: SKView) {
@@ -101,6 +106,8 @@ class GameScene: SKScene {
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesMoved(touches, with: event)
+        if isGameEnded {return}
+        
         guard let touch = touches.first else {return}
         //upadting the location
         let location = touch.location(in: self)
@@ -205,9 +212,15 @@ extension GameScene {
         setupSequenceType()
         createSlice()
         createScore()
-        drawPlayableArea()
+       // drawPlayableArea()
         createLives()
-        tossHandler()
+        setupOverlays()
+        
+        guard !isGameEnded else {return}
+        run(.wait(forDuration: 1.5)){
+            self.tossHandler()
+        }
+        
     }
     
     func drawPlayableArea(){
@@ -223,6 +236,15 @@ extension GameScene {
         physicsWorld.speed = 0.85
     }
     
+    func setupOverlays(){
+        gameOverOverlay = GameOverOverlay(gameScene: self, size: size)
+        gameOverOverlay.zPosition = 999999
+        addChild(gameOverOverlay)
+        
+        guard isReload else {return}
+        gameOverOverlay.setups(true)
+        gameOverOverlay.showPlay()
+    }
     
 }
 
@@ -244,6 +266,7 @@ extension GameScene {
 extension GameScene {
     
     func tossHandler(){
+        if isGameEnded {return}
         // time to spawn fruit
         popupTime *= 0.991
         delay *= 0.99
@@ -495,6 +518,12 @@ extension GameScene {
 extension GameScene {
     
     func setupGameOver(_ isGameOver: Bool){
+        gameOverOverlay.setups()
+        gameOverOverlay.showGameOver("GAME OVER!")
+        
+        if isGameEnded {return}
+        isGameEnded = true
+        
         physicsWorld.speed = 0.0
         isUserInteractionEnabled = false
         SKTAudio.shared.stopSoundEffect()
@@ -505,6 +534,15 @@ extension GameScene {
             livesNodes[2].texture = texture
         }
     }
+    
+    func presentScene(){
+        let scene = GameScene(size: size)
+        scene.scaleMode = scaleMode
+        scene.isReload = false
+        scene.isGameEnded = false
+        view!.presentScene(scene, transition: .fade(withDuration: 1.0))
+    }
+    
     
 }
 
