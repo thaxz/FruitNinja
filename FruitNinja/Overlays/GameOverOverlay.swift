@@ -192,9 +192,19 @@ extension GameOverOverlay {
         
         fadeInBG()
         fadeIn(playNode, delay: 0.5)
-        fadeIn(playLb, delay: 0.5
+        fadeIn(playLb, delay: 0.5)
     }
                
-               
+    func showGameOver(_ txt: String){
+        continueNode.isHidden = false
+        continueLb.isHidden = false
+
+        titleLb.isHidden = false
+        titleLb.text = txt
+        
+        fadeInBG()
+        fadeIn(continueNode, delay: 0.5)
+        fadeIn(continueLb, delay: 0.5)
+    }
     
 }
